@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>85.2 FM Aperture Radio</title>
+<link rel="stylesheet" href="style.css">
+<!-- Photon SDK -->
+<script src="https://cdn.jsdelivr.net/npm/photon-js-sdk@latest/dist/photon.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>📻 Aperture Science Radio</h1>
+    <div id="frequency-display">Loading...</div>
+  </header>
+
+  <main>
+    <audio id="player" controls autoplay>
+      <source src="static.mp3" type="audio/mpeg">
+    </audio>
+
+    <input type="range" id="tuner" min="600" max="1080" step="1">
+    
+    <!-- Admin Controls -->
+    <div id="admin-panel">
+      <h2>Admin Panel</h2>
+      <button id="shutdown-btn">Toggle Frequency</button>
+    </div>
+  </main>
+
+<script src="app.js"></script>
+</body>
+</html>
