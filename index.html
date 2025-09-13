@@ -14,30 +14,72 @@
       justify-content: center;
       height: 100vh;
     }
+
     #radio {
       width: 400px;
       text-align: center;
     }
+
+    #frequency-display {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
     #tuner {
       width: 100%;
+      -webkit-appearance: none;
+      height: 10px;
+      background: #222;
+      border-radius: 5px;
+      outline: none;
       margin: 10px 0;
     }
-    button {
-      margin-top: 10px;
-      padding: 5px 10px;
+
+    #tuner::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      background: #0f0;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 1px solid #0f0;
+    }
+
+    #freq-subtitle {
+      margin-bottom: 15px;
+      font-style: italic;
+    }
+
+    #buttons button, #play-btn {
+      margin: 5px;
+      padding: 5px 12px;
       background: #222;
       color: #0f0;
       border: 1px solid #0f0;
       cursor: pointer;
+      font-family: "Courier New", monospace;
+    }
+
+    #buttons button:hover, #play-btn:hover {
+      background: #0f0;
+      color: #111;
     }
   </style>
 </head>
 <body>
   <div id="radio">
     <audio id="player"></audio>
-    <div id="frequency-display">852 FM - Loading...</div>
+    <div id="frequency-display">85.2 FM - Loading...</div>
     <input type="range" id="tuner" min="800" max="1200" step="1" value="852">
-    <div id="freq-subtitle">Self Esteem Fund</div>
+    <div id="freq-subtitle">Portal Radio</div>
+
+    <!-- Preset buttons -->
+    <div id="buttons">
+      <button data-freq="852">Portal Radio</button>
+      <button data-freq="999">Dr. Kliner</button>
+    </div>
+
+    <!-- Play button for autoplay -->
     <button id="play-btn">Play Radio</button>
   </div>
 
