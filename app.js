@@ -13,7 +13,7 @@ const buttons = document.querySelectorAll('#buttons button');
 
 // Stations list
 let stations = {
-  852: { audio: 'assets/portal_radio.wav', name: 'Portal Radio', loop: false },
+  852: { audio: 'assets/portal_radio.wav', name: 'Portal Radio', loop: true },
   999: { audio: 'assets/dr_kliner_emergency.wav', name: 'Dr. Kliner', loop: false }
 };
 
