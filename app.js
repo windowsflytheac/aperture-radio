@@ -27,7 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
       display.innerText = currentFreq + " FM - " + stations[currentFreq].name;
       subtitle.innerText = stations[currentFreq].name;
       player.loop = stations[currentFreq].loop;
-      player.play().catch(() => {}); // autoplay fallback
+      // Only auto-play if already interacted
+      if (playBtn.disabled) player.play().catch(() => {});
     } else {
       display.innerText = currentFreq + " FM - Static";
       subtitle.innerText = "Nothing here";
@@ -47,9 +48,16 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Play button for user interaction
-  playBtn.addEventListener('click', () => setTuner(currentFreq));
+  playBtn.addEventListener('click', () => {
+    if (stations[currentFreq]) {
+      player.src = stations[currentFreq].audio;
+      player.loop = stations[currentFreq].loop;
+      player.play().catch(err => console.error("Playback failed:", err));
+      playBtn.disabled = true; // disable after first click
+    }
+  });
 
-  // Initialize
+  // Initialize display (audio won't autoplay yet)
   setTuner(currentFreq);
 
 });
