@@ -1,33 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>85.2 FM Aperture Radio</title>
-<link rel="stylesheet" href="style.css">
-<!-- Photon SDK -->
-<script src="https://cdn.jsdelivr.net/npm/photon-js-sdk@latest/dist/photon.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Aperture Radio Live</title>
+  <style>
+    body {
+      background: #111;
+      color: #0f0;
+      font-family: "Courier New", monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    #radio {
+      width: 400px;
+      text-align: center;
+    }
+    #tuner {
+      width: 100%;
+      margin: 10px 0;
+    }
+    button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      background: #222;
+      color: #0f0;
+      border: 1px solid #0f0;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>📻 Aperture Science Radio</h1>
-    <div id="frequency-display">Loading...</div>
-  </header>
+  <div id="radio">
+    <audio id="player"></audio>
+    <div id="frequency-display">852 FM - Loading...</div>
+    <input type="range" id="tuner" min="800" max="1200" step="1" value="852">
+    <div id="freq-subtitle">Self Esteem Fund</div>
+    <button id="play-btn">Play Radio</button>
+  </div>
 
-  <main>
-    <audio id="player" controls autoplay>
-      <source src="static.mp3" type="audio/mpeg">
-    </audio>
-
-    <input type="range" id="tuner" min="600" max="1080" step="1">
-    
-    <!-- Admin Controls -->
-    <div id="admin-panel">
-      <h2>Admin Panel</h2>
-      <button id="shutdown-btn">Toggle Frequency</button>
-    </div>
-  </main>
-
-<script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
