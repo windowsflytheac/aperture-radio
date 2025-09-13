@@ -1,4 +1,8 @@
-const PHOTON_APP_ID = "YOUR_APP_ID"; // Replace with your Photon App ID
+const PHOTON_APP_ID = "26389292-c85a-473e-8ed9-663b9bdad8b7"; // your live App ID
+
+// ======================================
+// Aperture Radio Live - Radio Logic Below
+// ======================================
 
 const player = document.getElementById('player');
 const display = document.getElementById('frequency-display');
