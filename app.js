@@ -1,7 +1,7 @@
 const PHOTON_APP_ID = "26389292-c85a-473e-8ed9-663b9bdad8b7"; // your live App ID
 
 // ======================================
-// Aperture Radio Live - Radio Logic Below
+// Aperture Radio Live - Radio Logic
 // ======================================
 
 const player = document.getElementById('player');
@@ -9,25 +9,28 @@ const display = document.getElementById('frequency-display');
 const tuner = document.getElementById('tuner');
 const subtitle = document.getElementById('freq-subtitle');
 const playBtn = document.getElementById('play-btn');
+const buttons = document.querySelectorAll('#buttons button');
 
 // Stations list
 let stations = {
-  852: { audio: 'assets/looping_radio_mix.wav', name: 'Self Esteem Fund' },
-  999: { audio: 'assets/dr_kliner_emergency.wav', name: 'Dr. Kliner' }
+  852: { audio: 'assets/portal_radio.wav', name: 'Portal Radio', loop: false },
+  999: { audio: 'assets/dr_kliner_emergency.wav', name: 'Dr. Kliner', loop: false }
 };
 
 let currentFreq = 852;
 
 // Function to switch station
 function setTuner(freq) {
-  currentFreq = freq;
-  if (stations[freq]) {
-    player.src = stations[freq].audio;
-    display.innerText = freq + (freq >= 1000 ? " FM" : " AM") + " - " + stations[freq].name;
-    subtitle.innerText = stations[freq].name;
+  currentFreq = parseInt(freq);
+  tuner.value = currentFreq; // sync slider
+  if (stations[currentFreq]) {
+    player.src = stations[currentFreq].audio;
+    display.innerText = currentFreq + " FM - " + stations[currentFreq].name;
+    subtitle.innerText = stations[currentFreq].name;
+    player.loop = stations[currentFreq].loop;
     player.play().catch(() => {}); // autoplay fallback
   } else {
-    display.innerText = freq + " --- Offline";
+    display.innerText = currentFreq + " FM - Static";
     subtitle.innerText = "Nothing here";
     player.pause();
   }
@@ -36,7 +39,15 @@ function setTuner(freq) {
 // Slider event
 tuner.addEventListener('input', () => setTuner(tuner.value));
 
-// Play button for user interaction (autoplay fix)
+// Preset buttons
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const freq = parseInt(btn.getAttribute('data-freq'));
+    setTuner(freq);
+  });
+});
+
+// Play button for user interaction
 playBtn.addEventListener('click', () => setTuner(currentFreq));
 
 // Initialize
