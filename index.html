@@ -2,88 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Aperture Radio Live</title>
+  <title>Aperture Radio</title>
   <style>
-    body {
-      background: #111;
-      color: #0f0;
-      font-family: "Courier New", monospace;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+    body { 
+      font-family: monospace; 
+      background: #111; 
+      color: #0f0; 
+      text-align: center; 
+      padding: 20px; 
     }
-
-    #radio {
-      width: 400px;
-      text-align: center;
-    }
-
-    #frequency-display {
-      font-size: 1.2em;
-      margin-bottom: 10px;
-    }
-
-    #tuner {
-      width: 100%;
-      -webkit-appearance: none;
-      height: 10px;
-      background: #222;
-      border-radius: 5px;
-      outline: none;
-      margin: 10px 0;
-    }
-
-    #tuner::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 20px;
-      height: 20px;
-      background: #0f0;
-      border-radius: 50%;
-      cursor: pointer;
-      border: 1px solid #0f0;
-    }
-
-    #freq-subtitle {
-      margin-bottom: 15px;
-      font-style: italic;
-    }
-
-    #buttons button, #play-btn {
-      margin: 5px;
-      padding: 5px 12px;
-      background: #222;
-      color: #0f0;
-      border: 1px solid #0f0;
-      cursor: pointer;
-      font-family: "Courier New", monospace;
-    }
-
-    #buttons button:hover, #play-btn:hover {
-      background: #0f0;
-      color: #111;
-    }
+    #frequency-display { margin: 10px 0; font-size: 1.2em; }
+    input[type="range"] { width: 300px; margin: 10px 0; }
+    button { padding: 5px 10px; cursor: pointer; }
   </style>
 </head>
 <body>
-  <div id="radio">
-    <audio id="player"></audio>
-    <div id="frequency-display">85.2 FM - Loading...</div>
-    <input type="range" id="tuner" min="800" max="1200" step="1" value="852">
-    <div id="freq-subtitle">Portal Radio</div>
+  <h1>🎵 Aperture Radio</h1>
+  
+  <audio id="player" controls></audio>
+  <div id="frequency-display">Loading...</div>
+  
+  <input type="range" id="tuner" min="800" max="1200" value="852">
+  <br>
+  <button id="play-btn">Play Radio</button>
 
-    <!-- Preset buttons -->
-    <div id="buttons">
-      <button data-freq="852">Portal Radio</button>
-      <button data-freq="999">Dr. Kliner</button>
-    </div>
-
-    <!-- Play button for autoplay -->
-    <button id="play-btn">Play Radio</button>
-  </div>
-
+  <!-- Load Photon locally -->
+  <script src="assets/photon.min.js"></script>
+  <!-- Your patched app logic -->
   <script src="app.js"></script>
 </body>
 </html>
-
