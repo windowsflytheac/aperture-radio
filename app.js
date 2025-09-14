@@ -11,10 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const buttons = document.querySelectorAll('#buttons button');
 
   // Stations list
-  let stations = {
-    852: { audio: 'assets/portal_radio.wav', name: 'Portal Radio', loop: true },
-    999: { audio: 'assets/dr_kliner_emergency.wav', name: 'Dr. Kliner', loop: false }
-  };
+let stations = {
+  852: { audio: 'assets/looping_radio_mix.wav', name: 'Portal Radio', loop: true },
+  999: { audio: 'assets/dr_kleiner_emergency.wav', name: 'Dr. Kleiner Emergency Speech', loop: false }
+};
 
   let currentFreq = 852;
 
