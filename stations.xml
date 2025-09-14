@@ -1,24 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <stations>
-  <station>
-    <frequency>852</frequency>
-    <type>FM</type>
-    <audio>assets/looping_radio_mix.wav</audio>
-    <name>Aperture Science Radio</name>
-    <offline>false</offline>
-  </station>
-  <station>
-    <frequency>1013</frequency>
-    <type>FM</type>
-    <audio>assets/black_mesa_mix.wav</audio>
-    <name>Black Mesa Broadcast</name>
-    <offline>false</offline>
-  </station>
-  <station>
-    <frequency>650</frequency>
-    <type>AM</type>
-    <audio>assets/emergency_broadcast.wav</audio>
-    <name>Aperture Emergency Channel</name>
-    <offline>false</offline>
-  </station>
+  <station frequency="852" name="Portal Radio" src="assets/looping_radio_mix.wav" loop="true" />
+  <station frequency="999" name="Dr. Kleiner Emergency Speech" src="assets/dr_kleiner_emergency.mp3" loop="false" />
 </stations>
