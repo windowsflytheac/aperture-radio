@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Stations list
 let stations = {
   852: { audio: 'assets/looping_radio_mix.wav', name: 'Portal Radio', loop: true },
-  999: { audio: 'assets/dr_kleiner_emergency.wav', name: 'Dr. Kleiner Emergency Speech', loop: false }
+  999: { audio: 'assets/dr_kleiner_emergency.mp3', name: 'Dr. Kleiner Emergency Speech', loop: false }
 };
 
   let currentFreq = 852;
